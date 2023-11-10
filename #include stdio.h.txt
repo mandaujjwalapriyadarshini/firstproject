@@ -1,0 +1,67 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct Node {
+    int data;
+    struct Node* next;
+};
+
+struct StackLinkedList {
+    struct Node* top;
+};
+
+void initializeLinkedListStack(struct StackLinkedList* stack) {
+    stack->top = NULL;  
+}
+
+int isLinkedListStackEmpty(struct StackLinkedList* stack) {
+    return stack->top == NULL;
+}
+
+void pushLinkedList(struct StackLinkedList* stack, int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+
+    if (newNode == NULL) {
+        printf("Memory allocation failed!\n");
+        return;
+    }
+
+    newNode->data = data;
+
+    newNode->next = stack->top;
+
+    stack->top = newNode;
+
+    printf("Pushed %d onto the stack.\n", data);
+}
+
+int popLinkedList(struct StackLinkedList* stack) {
+    if (isLinkedListStackEmpty(stack)) {
+        printf("Stack Underflow: Cannot pop from an empty stack.\n");
+        return -1; 
+    } else {
+        struct Node* poppedNode = stack->top;
+        int poppedData = poppedNode->data;
+
+        stack->top = poppedNode->next;
+
+        free(poppedNode);
+
+        return poppedData;
+    }
+}
+
+int main() {
+    struct StackLinkedList stack;
+    initializeLinkedListStack(&stack);
+
+    pushLinkedList(&stack, 5);
+    pushLinkedList(&stack, 3);
+    pushLinkedList(&stack, 8);
+
+    printf("Popped: %d\n", popLinkedList(&stack));
+    printf("Popped: %d\n", popLinkedList(&stack));
+    printf("Popped: %d\n", popLinkedList(&stack));
+    printf("Popped: %d\n", popLinkedList(&stack));  // Trying to pop from an empty stack
+
+    return 0;
+}

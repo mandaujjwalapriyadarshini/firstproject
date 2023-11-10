@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MAX_SIZE 10
+
+// Define a structure for the stack
+struct StackArray {
+    int arr[MAX_SIZE];
+    int top;
+};
+
+// Function to initialize the stack
+void initializeArrayStack(struct StackArray* stack) {
+    stack->top = -1; // Initialize top to -1 to indicate an empty stack
+}
+
+// Function to check if the stack is empty
+int isArrayStackEmpty(struct StackArray* stack) {
+    return stack->top == -1;
+}
+
+// Function to check if the stack is full
+int isArrayStackFull(struct StackArray* stack) {
+    return stack->top == MAX_SIZE - 1;
+}
+
+// Function to push an element onto the stack
+void pushArray(struct StackArray* stack, int data) {
+    if (isArrayStackFull(stack)) {
+        printf("Stack Overflow: Cannot push %d, the stack is full.\n", data);
+    } else {
+        stack->arr[++stack->top] = data;
+        printf("Pushed %d onto the stack.\n", data);
+    }
+}
+
+// Function to pop an element from the stack
+int popArray(struct StackArray* stack) {
+    if (isArrayStackEmpty(stack)) {
+        printf("Stack Underflow: Cannot pop from an empty stack.\n");
+        return -1; // Return an arbitrary value to indicate underflow
+    } else {
+        return stack->arr[stack->top--];
+    }
+}
+
+int main() {
+    struct StackArray stack;
+    initializeArrayStack(&stack);
+
+    pushArray(&stack, 5);
+    pushArray(&stack, 3);
+    pushArray(&stack, 8);
+
+    printf("Popped: %d\n", popArray(&stack));
+    printf("Popped: %d\n", popArray(&stack));
+    printf("Popped: %d\n", popArray(&stack));
+    printf("Popped: %d\n", popArray(&stack));  // Trying to pop from an empty stack
+
+    return 0;
+}
