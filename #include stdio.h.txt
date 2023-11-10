@@ -48,4 +48,5 @@ int popLinkedList(struct StackLinkedList* stack) {
 
         return poppedData;
 there are some errors!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!...................................
+data->next
 }
