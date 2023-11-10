@@ -47,21 +47,5 @@ int popLinkedList(struct StackLinkedList* stack) {
         free(poppedNode);
 
         return poppedData;
-    }
-}
-
-int main() {
-    struct StackLinkedList stack;
-    initializeLinkedListStack(&stack);
-
-    pushLinkedList(&stack, 5);
-    pushLinkedList(&stack, 3);
-    pushLinkedList(&stack, 8);
-
-    printf("Popped: %d\n", popLinkedList(&stack));
-    printf("Popped: %d\n", popLinkedList(&stack));
-    printf("Popped: %d\n", popLinkedList(&stack));
-    printf("Popped: %d\n", popLinkedList(&stack));  
-
-    return 0;
+there are some errors!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!...................................
 }
