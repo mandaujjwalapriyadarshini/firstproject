@@ -44,18 +44,4 @@ int popArray(struct StackArray* stack) {
     }
 }
 
-int main() {
-    struct StackArray stack;
-    initializeArrayStack(&stack);
-
-    pushArray(&stack, 5);
-    pushArray(&stack, 3);
-    pushArray(&stack, 8);
-
-    printf("Popped: %d\n", popArray(&stack));
-    printf("Popped: %d\n", popArray(&stack));
-    printf("Popped: %d\n", popArray(&stack));
-    printf("Popped: %d\n", popArray(&stack));  // Trying to pop from an empty stack
-
-    return 0;
-}
+hiii...........frends
