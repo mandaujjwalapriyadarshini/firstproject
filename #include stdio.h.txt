@@ -61,7 +61,7 @@ int main() {
     printf("Popped: %d\n", popLinkedList(&stack));
     printf("Popped: %d\n", popLinkedList(&stack));
     printf("Popped: %d\n", popLinkedList(&stack));
-    printf("Popped: %d\n", popLinkedList(&stack));  // Trying to pop from an empty stack
+    printf("Popped: %d\n", popLinkedList(&stack));  
 
     return 0;
 }
